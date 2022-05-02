@@ -1,18 +1,11 @@
-import { Switch, Route, BrowserRouter } from "react-router-dom";
-import Navbar from "./components/common/Navbar";
-
-// dependencies
-import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/js/bootstrap.js";
-import "font-awesome/css/font-awesome.min.css";
-import "jquery/dist/jquery.js";
-
+import React from 'react';
+import PageRoutes from './Routes/pageRoutes';
 
 function App() {
   return (
-    <BrowserRouter>
-      <Navbar />
-    </BrowserRouter>
+    <div className="App">
+        <PageRoutes/>
+    </div>
   );
 }
 
