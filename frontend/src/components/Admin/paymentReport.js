@@ -191,7 +191,6 @@ const PaymentReport = React.forwardRef((props, ref) => {
                   <th>Deposited Date</th>
                   <th>Bank</th>
                   <th>Branch</th>
-                  <th>Payment Slip</th>
                   <th>Status</th>
                 </tr>
               </thead>
@@ -208,14 +207,7 @@ const PaymentReport = React.forwardRef((props, ref) => {
                     </td>
                     <td>{c.bank}</td>
                     <td>{c.branch}</td>
-                    <td>
-                      <img
-                        height="100px"
-                        src={`http://localhost:8081/student-payment/photo/${c._id}`}
-                        alt={c.name}
-                        className="mb-3"
-                      />
-                    </td>
+
                     {c.status === "" && <td>-</td>}
                     {c.status === "not decided" && (
                       <td>
