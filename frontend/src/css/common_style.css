@@ -22,7 +22,10 @@ font-weight: bold;
 .navbar-brand a {
 font-family: "Algerian";
 }
-
+.nav-link a:hover{
+    color: yellow;
+    transition: all 3s;
+}
 .navbar-nav li {
     font-size: medium;
     font-weight: normal;
@@ -33,7 +36,7 @@ background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32
 }
 
 .custom-toggler.navbar-toggler {
-border-color: rgb(255,102,203);
+border-color: rgb(42, 100, 131);
 }
 
 .button-signUp{
@@ -56,9 +59,9 @@ border-color: rgb(255,102,203);
 }
 
 .button2-signup:hover {
-    background-color: #882e88;
+    background-color: #2e3d88;
     color: #ffffff;
-    border: 2px solid #882e88;
+    border: 2px solid #2e2e88;
     transform: scale(1.01);
 }
 /* #################### about us ########################## */
@@ -99,11 +102,11 @@ border-color: rgb(255,102,203);
 }
 
 .contactus label{
-    color: #805a80;
+    color: #5a6980;
 }
 
 .contactus i{
-    background-color:  #805a80;
+    background-color:  #5c5a80;
     color: #ffffff;
     font-size: 25px;
     width: 38px;
@@ -127,7 +130,7 @@ border-color: rgb(255,102,203);
 }
 
 .contactus p a{
-    color: #724672;
+    color: #464a72;
     text-decoration: none;;
 }
 
@@ -151,9 +154,9 @@ border-color: rgb(255,102,203);
 }
 
 .contactus .button2-submit:hover {
-    background-color: #882e88;
+    background-color: #2e4788;
     color: #ffffff;
-    border: 2px solid #882e88;
+    border: 2px solid #2e2e88;
     transform: scale(1.01);
 }
 /*################home page ##################### */
@@ -199,14 +202,14 @@ header h1{
 }
 
 header h2{
-    color: #F05283;
+    color: #380adf;
 }
 
 header h2 a{
     color:inherit;
     text-decoration: none;
     display: inline-block;
-    border: 1px solid #F05283;
+    border: 1px solid #5f52f0;
     padding: 10px 15px;
     border-radius: 3px;
     font: bold 14px/1 'Open Sans', sans-serif;
@@ -214,7 +217,7 @@ header h2 a{
 }
 
 header h2 a:hover{
-    background-color:#F05283;
+    background-color:#dbc11b;
     transition:0.2s;
     color:#fff;
 }
@@ -1289,7 +1292,16 @@ p3 {
     text-transform: capitalize;
     text-align: center;
 }
-
+.background-teacher img{
+    position: absolute;
+    right: 100px;
+    width: 180px;
+}
+.background-view--teacher .top{
+    position: absolute;
+    right: 0px;
+    width: 190px;
+}
 
 /*################################ Alerts css  ################################*/
 .toast:not(.showing):not(.show) {
@@ -1316,5 +1328,100 @@ p3 {
 .background-st-ac tr{
     color: #7694b6;
 }
+.background-update-transaction {
+    max-width: 50%;
+    position: center;
+}
 
-/* ############################################################### */
+.background img{
+    position: absolute;
+    right: 100px;
+    width: 180px;
+}
+.background-view .top{
+    position: absolute;
+    right: 0px;
+    width: 190px;
+}
+
+/* ####################### Buttons ########################### */
+.button-green {
+    background-color: Transparent; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button2-green {
+    background-color: Transparent;
+    color: #267808;
+    font-weight: bold;
+    border: 2px solid #267808;
+}
+
+.button2-green:hover {
+    background-color: #267808;
+    color: white;
+}
+
+.button-red {
+    background-color: Transparent; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button2-red {
+    background-color: Transparent;
+    color: #FF0000;
+    font-weight: bold;
+    border: 2px solid #FF0000;
+}
+
+.button2-red:hover {
+    background-color: #FF0000;
+    color: white;
+}
+
+.button-orange {
+    background-color: Transparent; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+    cursor: pointer;
+}
+
+.button2-orange {
+    background-color: Transparent;
+    color: #f49b4e;
+    font-weight: bold;
+    border: 2px solid #f49b4e;
+}
+
+.button2-orange:hover {
+    background-color: #f49b4e;
+    color: white;
+}
