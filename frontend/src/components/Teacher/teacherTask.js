@@ -116,21 +116,14 @@ const TeacherTaskLISt = () => {
               <div className="row">
                 <div className="justify-content-md-end">
                   <div className="input-group justify-content-md-end">
-                    <Typed
-                      strings={["Search by Task Title", "Search by Teacher ID"]}
-                      typeSpeed={40}
-                      backSpeed={50}
-                      attr="placeholder"
-                      loop
-                    >
-                      <input
-                        type="search"
-                        className="form-control"
-                        placeholder="Search..."
-                        value={q}
-                        onChange={(e) => setQ(e.target.value)}
-                      />
-                    </Typed>
+                    <input
+                      type="search"
+                      className="form-control"
+                      placeholder="Search by teacher id"
+                      value={q}
+                      onChange={(e) => setQ(e.target.value)}
+                    />
+
                     <span className="input-group-text">
                       <i className="fas fa-search"></i>
                     </span>

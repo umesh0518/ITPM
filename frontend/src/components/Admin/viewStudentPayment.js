@@ -175,7 +175,7 @@ const ViewStudentPayment = () => {
                     <input
                       type="search"
                       className="form-control"
-                      placeholder="Search..."
+                      placeholder="Search by student name ..."
                       value={q}
                       onChange={(e) => setQ(e.target.value)}
                     />

@@ -20,11 +20,7 @@ class ViewApprovedMaterials extends Component {
   render() {
     return (
       <div className="background">
-        <h1>
-          {" "}
-          delete this
-          !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-        </h1>
+        <h1> </h1>
         <div className="container p-3">
           <p3>UPLOAD STATUS</p3>
           <br />
