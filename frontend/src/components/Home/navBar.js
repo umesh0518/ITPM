@@ -74,25 +74,28 @@ const Navbar = () => {
                     <li className="nav-item">
                       <Link
                         className="nav-link"
-                        style={isActive(
-                          history,
-                          "/teacher/add-course-materials"
-                        )}
-                        to="/teacher/add-course-materials"
+                        style={isActive(history, "/teacher/assignmentTask")}
+                        to="/teacher/assignmentTask"
                       >
-                        Upload Lessons
+                        Assignments
                       </Link>
                     </li>
                     <li className="nav-item">
                       <Link
                         className="nav-link"
-                        style={isActive(
-                          history,
-                          "/teacher/view-approved-materials"
-                        )}
-                        to="/teacher/view-approved-materials"
+                        style={isActive(history, "/teacher/assignment")}
+                        to="/teacher/assignment"
                       >
-                        Lesson Upload Status
+                        Upload Assignments
+                      </Link>
+                    </li>
+                    <li className="nav-item">
+                      <Link
+                        className="nav-link"
+                        style={isActive(history, "/teacher/assignmentReport")}
+                        to="/teacher/assignmentReport"
+                      >
+                        Assignment Report
                       </Link>
                     </li>
                   </>
@@ -121,20 +124,10 @@ const Navbar = () => {
                     <li className="nav-item">
                       <Link
                         className="nav-link"
-                        style={isActive(history, "/student/notices")}
-                        to="/student/notices"
+                        style={isActive(history, "/notices/notice")}
+                        to="/notices/notice"
                       >
                         Student Notices
-                      </Link>
-                    </li>
-
-                    <li className="nav-item">
-                      <Link
-                        className="nav-link"
-                        style={isActive(history, "/student/TakeClassMaterials")}
-                        to="/student/TakeClassMaterials"
-                      >
-                        My Class Materials
                       </Link>
                     </li>
                   </>
@@ -177,9 +170,10 @@ const Navbar = () => {
                         style={isActive(history, "/teacherTaskList/")}
                         to="/teacherTaskList/"
                       >
-                        Teacher Task List
+                        Course
                       </Link>
                     </li>
+
                     <li className="nav-item">
                       <Link
                         className="nav-link"

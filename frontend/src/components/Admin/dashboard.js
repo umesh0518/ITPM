@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import studentPayment from "../../images/studentPayment.png";
-import income from "../../images/income.png";
-import outcome from "../../images/outcomes.png";
+import course from "../../images/img4.png";
 import report from "../../images/report.png";
 import calendar from "../../images/calendar.png";
 import dashboard from "../../images/dashboard.png";
+import notice from "../../images/dashboard.png";
 
 class Dashboard extends Component {
   render() {
@@ -28,25 +28,16 @@ class Dashboard extends Component {
             </a>
           </div>
           <div className="col">
-            <a href="/accountant/company-payment-incomes">
+            <a href="/teacherTaskList/">
               <div className="card-d shadow p-3 mb-5 rounded">
-                <h5>Company Incomes</h5>
+                <h5>Courses</h5>
                 <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                  <img src={income} height="100px" />
+                  <img src={course} height="100px" />
                 </div>
               </div>
             </a>
           </div>
-          <div className="col">
-            <a href="/accountant/company-payment-expenses">
-              <div className="card-d shadow p-3 mb-5 rounded">
-                <h5>Company Outcomes</h5>
-                <div className="d-grid gap-2 d-md-flex justify-content-md-end">
-                  <img src={outcome} height="100px" />
-                </div>
-              </div>
-            </a>
-          </div>
+
           <div className="col">
             <a href="/accountant/report">
               <div className="card-d shadow p-3 rounded">
@@ -63,6 +54,16 @@ class Dashboard extends Component {
                 <h5>Calender</h5>
                 <div className="d-grid gap-2 d-md-flex justify-content-md-end">
                   <img src={calendar} height="100px" />
+                </div>
+              </div>
+            </a>
+          </div>
+          <div className="col">
+            <a href="/notices/notice">
+              <div className="card-d shadow p-3 rounded">
+                <h5>Notices</h5>
+                <div className="d-grid gap-2 d-md-flex justify-content-md-end">
+                  <img src={notice} height="100px" />
                 </div>
               </div>
             </a>

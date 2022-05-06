@@ -13,6 +13,8 @@ const courseRoute = require("./Routes/Course/route.course");
 const studentNoticesRoute = require("./Routes/Student/route.studentNotices");
 const studentFeedBackRoute = require("./Routes/Student/route.feedback");
 const MainStudentRoute = require("./Routes/Student/route.student");
+const AssignmentRoute = require("./Routes/Class/route.assignment");
+const NoticeRoute = require("./Routes/Class/route.notice.new");
 
 dotenv.config();
 const app = express();
@@ -77,6 +79,8 @@ app.use("/course", courseRoute());
 app.use("/StudentNotices", studentNoticesRoute());
 app.use("/StudentFeedbacks", studentFeedBackRoute());
 app.use("/MainStudent", MainStudentRoute());
+app.use("/teacher-assignment", AssignmentRoute());
+app.use("/notices", NoticeRoute());
 
 app.listen(PORT, () => {
   console.log("######################################################");
