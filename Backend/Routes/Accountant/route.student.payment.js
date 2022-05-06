@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../../Controllers/Accountant/controller.student.payment');
+const controller = require('../../Controllers/Student/controller.student.payment');
 
 module.exports = function () {
     //POST Student Payment
