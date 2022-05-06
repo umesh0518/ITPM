@@ -1,7 +1,7 @@
 const formidable = require("formidable");
 const _ = require("lodash");
 const fs = require("fs");
-const StudentPayment = require('../../Modules/Accountant/module.student.payment');
+const StudentPayment = require('../../Modules/Student/module.student.payment');
 
 /**
  * Get a specific Student payment controller
