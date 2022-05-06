@@ -1,4 +1,7 @@
 import React, { useEffect, useState } from "react";
+import Form from "react-validation/build/form";
+import Input from "react-validation/build/input";
+import CheckButton from "react-validation/build/button";
 
 const AddStudentPayment = () => {
   const [values, setValues] = useState({
@@ -71,6 +74,15 @@ const AddStudentPayment = () => {
         window.location.href = "/student/payment";
       }
     });
+  };
+  const required = (value) => {
+    if (!value) {
+      return (
+        <div className="alert alert-danger" role="alert">
+          This field is required!
+        </div>
+      );
+    }
   };
 
   const showLoading = () =>
