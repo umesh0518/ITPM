@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import Form from "react-validation/build/form";
 import Input from "react-validation/build/input";
 import CheckButton from "react-validation/build/button";
+import validationReport from "./validationReport";
 
 const AddStudentPayment = () => {
   const [values, setValues] = useState({
     name: "",
-    contactNo: "",
+    contactNo: 0,
     studentID: "",
     depositedAmount: 0,
     depositedDate: "",
@@ -37,6 +38,11 @@ const AddStudentPayment = () => {
     formData,
   } = values;
 
+  //for errors
+  const [errors, setErrors] = useState({});
+  //if data is submitted
+  const [dataIsSubmitted, setDataIsSubmitted] = useState(false);
+
   useEffect(() => {
     setValues({ ...values, formData: new FormData() });
   }, []);
@@ -64,9 +70,33 @@ const AddStudentPayment = () => {
       });
   };
 
-  const clickSubmit = (event) => {
+  // after validation -- send data to backend
+
+  const sendData = async (event) => {
     event.preventDefault();
     setValues({ ...values, error: "", loading: true });
+    setDataIsSubmitted(true);
+    setErrors(validationReport(values));
+    console.log(typeof values.depositedAmount);
+    if (
+      values.name &&
+      values.studentID &&
+      values.contactNo &&
+      values.classes &&
+      values.teacher &&
+      values.branch &&
+      values.bank &&
+      values.depositedDate &&
+      values.depositedAmount
+    ) {
+      clickSubmit();
+    }
+  };
+
+  const clickSubmit = (event) => {
+    // event.preventDefault();
+    // setValues({ ...values, error: "", loading: true });
+
     createPayment(formData).then((data) => {
       if (data.error) {
         setValues({ ...values, error: data.error });
@@ -129,7 +159,7 @@ const AddStudentPayment = () => {
             <form
               className="row g-3"
               data-testid="form-tag-add-student-payment"
-              onSubmit={clickSubmit}
+              onSubmit={sendData}
             >
               <h5>Student Details</h5>
               <div className="col-12">
@@ -148,10 +178,14 @@ const AddStudentPayment = () => {
                     name="name"
                     value={name}
                     onChange={handleChange("name")}
-                    required
+                    // required
                   />
                 </div>
+                {dataIsSubmitted && !values.name ? (
+                  <div className="alert alert-danger">{errors.name}</div>
+                ) : null}
               </div>
+
               <div className="col-md-6">
                 <label htmlFor="contactNo" className="form-label">
                   Contact Number
@@ -168,10 +202,14 @@ const AddStudentPayment = () => {
                     name="contactNo"
                     value={contactNo}
                     onChange={handleChange("contactNo")}
-                    required
+                    // required
                   />
                 </div>
+                {dataIsSubmitted && !values.contactNo ? (
+                  <div className="alert alert-danger">{errors.contactNo}</div>
+                ) : null}
               </div>
+
               <div className="col-md-6">
                 <label htmlFor="studentID" className="form-label">
                   Student ID
@@ -188,10 +226,14 @@ const AddStudentPayment = () => {
                     name="studentID"
                     value={studentID}
                     onChange={handleChange("studentID")}
-                    required
+                    // required
                   />
                 </div>
+                {dataIsSubmitted && !values.studentID ? (
+                  <div className="alert alert-danger">{errors.studentID}</div>
+                ) : null}
               </div>
+
               <div className="col-md-6">
                 <label htmlFor="classes" className="form-label">
                   Class
@@ -208,10 +250,14 @@ const AddStudentPayment = () => {
                     name="classes"
                     value={classes}
                     onChange={handleChange("classes")}
-                    required
+                    // required
                   />
                 </div>
+                {dataIsSubmitted && !values.classes ? (
+                  <div className="alert alert-danger">{errors.classes}</div>
+                ) : null}
               </div>
+
               <div className="col-md-6">
                 <label htmlFor="teacher" className="form-label">
                   Name of teacher
@@ -228,10 +274,14 @@ const AddStudentPayment = () => {
                     name="teacher"
                     value={teacher}
                     onChange={handleChange("teacher")}
-                    required
+                    // required
                   />
                 </div>
+                {dataIsSubmitted && !values.teacher ? (
+                  <div className="alert alert-danger">{errors.teacher}</div>
+                ) : null}
               </div>
+
               <h5>Payment Details</h5>
               <div className="col-md-6">
                 <label htmlFor="type" className="form-label">
@@ -246,7 +296,7 @@ const AddStudentPayment = () => {
                     onChange={handleChange("type")}
                     data-testid="payment-type-field"
                     id="type"
-                    required="true"
+                    // required="true"
                     value={type}
                     name="type"
                   >
@@ -257,7 +307,11 @@ const AddStudentPayment = () => {
                     <option value="Monthly Fee">Monthly Fee</option>
                   </select>
                 </div>
+                {dataIsSubmitted && !values.type ? (
+                  <div className="alert alert-danger">{errors.type}</div>
+                ) : null}
               </div>
+
               <div className="col-md-6">
                 <label htmlFor="depositedAmount" className="form-label">
                   Deposited Amount (Rs.)
@@ -274,10 +328,16 @@ const AddStudentPayment = () => {
                     name="depositedAmount"
                     value={depositedAmount}
                     onChange={handleChange("depositedAmount")}
-                    required
+                    // required
                   />
                 </div>
+                {dataIsSubmitted && !values.depositedAmount ? (
+                  <div className="alert alert-danger">
+                    {errors.depositedAmount}
+                  </div>
+                ) : null}
               </div>
+
               <div className="col-md-6">
                 <label htmlFor="depositedDate" className="form-label">
                   Deposited Date
@@ -294,10 +354,16 @@ const AddStudentPayment = () => {
                     name="depositedDate"
                     value={depositedDate}
                     onChange={handleChange("depositedDate")}
-                    required
+                    // required
                   />
                 </div>
+                {dataIsSubmitted && !values.depositedDate ? (
+                  <div className="alert alert-danger">
+                    {errors.depositedDate}
+                  </div>
+                ) : null}
               </div>
+
               <div className="col-md-6">
                 <label htmlFor="bank" className="form-label">
                   Bank
@@ -311,7 +377,7 @@ const AddStudentPayment = () => {
                     data-testid="bank-field"
                     onChange={handleChange("bank")}
                     id="bank"
-                    required="true"
+                    // required="true"
                     value={bank}
                     name="bank"
                   >
@@ -322,7 +388,11 @@ const AddStudentPayment = () => {
                     <option value="NDB">NDB</option>
                   </select>
                 </div>
+                {dataIsSubmitted && !values.bank ? (
+                  <div className="alert alert-danger">{errors.bank}</div>
+                ) : null}
               </div>
+
               <div className="col-md-6 mb-3">
                 <label htmlFor="branch" className="form-label">
                   Branch
@@ -339,10 +409,14 @@ const AddStudentPayment = () => {
                     name="branch"
                     value={branch}
                     onChange={handleChange("branch")}
-                    required
+                    // required
                   />
                 </div>
+                {dataIsSubmitted && !values.branch ? (
+                  <div className="alert alert-danger">{errors.branch}</div>
+                ) : null}
               </div>
+
               <div className="col-md-6 mb-3">
                 <label htmlFor="paymentSlip" className="form-label">
                   Payment Slip <i>(Maximum file size 10MB)</i>

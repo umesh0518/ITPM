@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
+import validationReport from "./validationReport";
 
 const UpdateStudentPayment = ({ match }) => {
   const [values, setValues] = useState({
@@ -37,6 +38,11 @@ const UpdateStudentPayment = ({ match }) => {
     redirectTo,
     formData,
   } = values;
+
+  //for errors
+  const [errors, setErrors] = useState({});
+  //if data is submitted
+  const [dataIsSubmitted, setDataIsSubmitted] = useState(false);
 
   useEffect(() => {
     init(match.params.id);
@@ -105,11 +111,34 @@ const UpdateStudentPayment = ({ match }) => {
       }
     }
   };
+  // after validation -- send data to backend
+
+  const sendDataforEdit = async (event) => {
+    event.preventDefault();
+    setValues({ ...values, error: "", loading: true });
+
+    setDataIsSubmitted(true);
+    setErrors(validationReport(values));
+    console.log(errors.name);
+    if (
+      values.name &&
+      values.studentID &&
+      values.contactNo &&
+      values.classes &&
+      values.teacher &&
+      values.branch &&
+      values.bank &&
+      values.depositedDate &&
+      values.depositedAmount
+    ) {
+      clickSubmit();
+    }
+  };
 
   // update the details
   const clickSubmit = (event) => {
-    event.preventDefault();
-    setValues({ ...values, error: "", loading: true });
+    // event.preventDefault();
+    // setValues({ ...values, error: "", loading: true });
 
     updatePayment(match.params.id, formData).then((data) => {
       if (data.error) {
@@ -118,7 +147,7 @@ const UpdateStudentPayment = ({ match }) => {
         setValues({
           ...values,
           name: "",
-          contactNo: "",
+          contactNo: 0,
           studentID: "",
           depositedAmount: 0,
           depositedDate: "",
@@ -143,7 +172,7 @@ const UpdateStudentPayment = ({ match }) => {
         <div className="p-3">
           <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Update Your Payment</h1>
           <div className="p-3">
-            <form className="row g-3" onSubmit={clickSubmit}>
+            <form className="row g-3" onSubmit={sendDataforEdit}>
               <h5>Student Details</h5>
               <div className="col-12">
                 <label htmlFor="name" className="form-label">
@@ -162,7 +191,11 @@ const UpdateStudentPayment = ({ match }) => {
                     onChange={handleChange("name")}
                   />
                 </div>
+                {dataIsSubmitted && !values.name ? (
+                  <div className="alert alert-danger">{errors.name}</div>
+                ) : null}
               </div>
+
               <div className="col-md-6">
                 <label htmlFor="contactNo" className="form-label">
                   Contact Number
@@ -180,7 +213,11 @@ const UpdateStudentPayment = ({ match }) => {
                     onChange={handleChange("contactNo")}
                   />
                 </div>
+                {dataIsSubmitted && !values.contactNo ? (
+                  <div className="alert alert-danger">{errors.contactNo}</div>
+                ) : null}
               </div>
+
               <div className="col-md-6">
                 <label htmlFor="studentID" className="form-label">
                   Student ID
@@ -198,7 +235,11 @@ const UpdateStudentPayment = ({ match }) => {
                     onChange={handleChange("studentID")}
                   />
                 </div>
+                {dataIsSubmitted && !values.studentID ? (
+                  <div className="alert alert-danger">{errors.studentID}</div>
+                ) : null}
               </div>
+
               <div className="col-md-6">
                 <label htmlFor="classes" className="form-label">
                   Class
@@ -216,7 +257,11 @@ const UpdateStudentPayment = ({ match }) => {
                     onChange={handleChange("classes")}
                   />
                 </div>
+                {dataIsSubmitted && !values.classes ? (
+                  <div className="alert alert-danger">{errors.classes}</div>
+                ) : null}
               </div>
+
               <div className="col-md-6">
                 <label htmlFor="teacher" className="form-label">
                   Name of teacher
@@ -234,7 +279,11 @@ const UpdateStudentPayment = ({ match }) => {
                     onChange={handleChange("teacher")}
                   />
                 </div>
+                {dataIsSubmitted && !values.teacher ? (
+                  <div className="alert alert-danger">{errors.teacher}</div>
+                ) : null}
               </div>
+
               <h5>Payment Details</h5>
               <div className="col-md-6">
                 <label htmlFor="type" className="form-label">
@@ -254,7 +303,12 @@ const UpdateStudentPayment = ({ match }) => {
                   </option>
                   <option value="Monthly Fee">Monthly Fee</option>
                 </select>
+
+                {dataIsSubmitted && !values.type ? (
+                  <div className="alert alert-danger">{errors.type}</div>
+                ) : null}
               </div>
+
               <div className="col-md-6">
                 <label htmlFor="depositedAmount" className="form-label">
                   Deposited Amount (Rs.)
@@ -272,7 +326,13 @@ const UpdateStudentPayment = ({ match }) => {
                     onChange={handleChange("depositedAmount")}
                   />
                 </div>
+                {dataIsSubmitted && !values.depositedAmount ? (
+                  <div className="alert alert-danger">
+                    {errors.depositedAmount}
+                  </div>
+                ) : null}
               </div>
+
               <div className="col-md-6">
                 <label htmlFor="depositedDate" className="form-label">
                   Deposited Date
@@ -290,7 +350,13 @@ const UpdateStudentPayment = ({ match }) => {
                     onChange={handleChange("depositedDate")}
                   />
                 </div>
+                {dataIsSubmitted && !values.depositedDate ? (
+                  <div className="alert alert-danger">
+                    {errors.depositedDate}
+                  </div>
+                ) : null}
               </div>
+
               <div className="col-md-6">
                 <label htmlFor="bank" className="form-label">
                   Bank
@@ -309,7 +375,11 @@ const UpdateStudentPayment = ({ match }) => {
                   <option value="Commercial bank">Commercial bank</option>
                   <option value="NDB">NDB</option>
                 </select>
+                {dataIsSubmitted && !values.bank ? (
+                  <div className="alert alert-danger">{errors.bank}</div>
+                ) : null}
               </div>
+
               <div className="col-md-6 mb-3">
                 <label htmlFor="branch" className="form-label">
                   Branch
@@ -327,7 +397,11 @@ const UpdateStudentPayment = ({ match }) => {
                     onChange={handleChange("branch")}
                   />
                 </div>
+                {dataIsSubmitted && !values.branch ? (
+                  <div className="alert alert-danger">{errors.branch}</div>
+                ) : null}
               </div>
+
               <div className="col-md-6 mb-3">
                 <label htmlFor="paymentSlip" className="form-label">
                   Payment Slip (Maximum file size 10MB)
