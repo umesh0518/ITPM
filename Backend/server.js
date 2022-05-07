@@ -5,9 +5,9 @@ const cors = require("cors");
 const bodyParser = require("body-parser");
 
 const studentPaymentRoute = require("./Routes/Student/route.student.payment");
-const teacherTaskRoute = require("./Routes/Class/route.class");
-const AssignmentRoute = require("./Routes/Class/route.assignment");
-const NoticeRoute = require("./Routes/Class/route.notice.new");
+const teacherTaskRoute = require("./Routes/Course/route.course");
+const AssignmentRoute = require("./Routes/Teacher/route.assignment");
+const NoticeRoute = require("./Routes/Notice/route.notice.new");
 
 dotenv.config();
 const app = express();

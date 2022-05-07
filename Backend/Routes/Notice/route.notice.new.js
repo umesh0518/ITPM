@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const controller = require("../../Controllers/Teacher/controller.teacherTaskNotice");
+const controller = require("../../Controllers/Notice/controller.newNotice");
 
 module.exports = function () {
   router.post("/add-notice", controller.createteacherTask);

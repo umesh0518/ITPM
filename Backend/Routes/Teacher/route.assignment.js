@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const controller = require("../../Controllers/Teacher/controller.teacherTaskAssingment");
+const controller = require("../../Controllers/Teacher/controller.teacherAssingment");
 
 module.exports = function () {
   router.post("/create-assignment", controller.createteacherTask);

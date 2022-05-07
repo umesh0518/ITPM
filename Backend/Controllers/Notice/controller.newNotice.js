@@ -2,7 +2,7 @@ const formidable = require("formidable");
 const _ = require("lodash");
 const fs = require("fs");
 const { next } = require("lodash");
-const teacherTask = require("../../Modules/Class/module.notice");
+const teacherTask = require("../../Modules/Notice/module.notice");
 
 const createteacherTask = async (req, res) => {
   if (req.body) {

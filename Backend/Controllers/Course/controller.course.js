@@ -2,7 +2,7 @@ const formidable = require("formidable");
 const _ = require("lodash");
 const fs = require("fs");
 const { next } = require("lodash");
-const teacherTask = require("../../Modules/Class/module.assingment");
+const teacherTask = require("../../Modules/Course/module.course");
 
 const createteacherTask = async (req, res) => {
   if (req.body) {
@@ -45,14 +45,14 @@ const viewteacherTaskById = async (req, res) => {
 };
 
 const updateById = async (req, res) => {
-  const { slug } = req.params;
+  const { slug } = req.params.id;
   const { tasktitle, taskdescription, teacherid, implevel, validtill, status } =
     req.body;
+
   teacherTask
     .findOneAndUpdate(
       { slug },
-      { tasktitle, taskdescription, teacherid, implevel, validtill, status },
-      { new: true }
+      { tasktitle, taskdescription, teacherid, implevel, validtill, status }
     )
     .exec((err, topic) => {
       if (err) console.log(err);

@@ -1,18 +1,13 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const controller = require("../../Controllers/Course/controller.course.js");
+const controller = require('../../Controllers/Course/controller.course');
 
 module.exports = function () {
-  //POST Student Payment
-  router.post("/create", controller.createCourse);
-  //GET Student Payment
-  router.get("/", controller.getAllCourse);
-
-  //GET Student Payment By ID
-  router.get("/:id", controller.CourseById);
-  //DELETE Student Payment By ID
-  router.delete("/delete/:id", controller.deleteById);
-  //UPDATE payment status
-  router.put("/update/:id", controller.updateById);
-  return router;
-};
+    router.post('/createTeacherTask', controller.createteacherTask);  
+    router.get('/TeacherTask', controller.getAllteacherTask);
+    router.get('/TeacherTask/:id', controller.viewteacherTaskById);
+    router.put('/TeacherTask/:id', controller.updateById);
+    router.delete('/TeacherTask/:id', controller.deleteById);
+    router.put('/TeacherTask/status/:id', controller.updateStatus);
+    return router;
+}
