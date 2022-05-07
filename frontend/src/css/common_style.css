@@ -1,6 +1,6 @@
 /* #################### navbar ########################## */
 .navbar {
-    font-family: "Nunito Sans";
+    font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
     font-size: 20px;
 }
 .navbar-custom {
@@ -20,7 +20,7 @@ font-weight: bold;
 }
 
 .navbar-brand a {
-font-family: "Algerian";
+    font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
 }
 .nav-link a:hover{
     color: yellow;
@@ -143,7 +143,7 @@ border-color: rgb(42, 100, 131);
     -webkit-transition-duration: 0.4s;
     transition-duration: 0.4s;
     cursor: pointer;
-    font-size: 17px;
+   
 }
 
 .contactus .button2-submit {
@@ -579,7 +579,7 @@ h3 span{
 }
 .take-class-materials .week {
     display:flex;
-    justfiy-content:space-between;
+    justify-content:space-between;
 }
 .take-class-materials .colums {
     display:flex;
@@ -977,7 +977,7 @@ h3 span{
 }
 .Notice-Enter .week {
     display:flex;
-    justfiy-content:space-between;
+    justify-content:space-between;
 }
 .Notice-Enter .colums {
     display:flex;
@@ -1084,7 +1084,7 @@ h3 span{
     padding: 10px;
 }
 .admin-container h1 {
-    font-family: "Century Schoolbook";
+    font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
     color: #071b87;
     font-weight: bold;
 }
@@ -1122,7 +1122,7 @@ h3 span{
     padding: 10px;
 }
 .manager-container h2 {
-    font-family: "Century Schoolbook";
+    font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
     color: #1b09bde7;
     font-weight: bold;
     padding-left: 20px;
@@ -1156,12 +1156,12 @@ h3 span{
 
 
 /* ################################teacher ################################ */
-p3 {
+/* p3 {
     font-size: xx-large;
     padding-left: 10px;
     color: #1a188c;
     font-family: bold;
-}
+} */
 
 .background-material .h2 {
     font-family: bold;
@@ -1206,7 +1206,7 @@ p3 {
 
 .background-material li {
     font-weight: bold;
-    font-family: inter;
+    font-family: Helvetica, Arial, Verdana, Tahoma, sans-serif;
 }
 
 .background-material .button {

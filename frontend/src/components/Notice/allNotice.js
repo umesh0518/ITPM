@@ -71,13 +71,7 @@ const TeacherTaskList = () => {
     loadTask();
   }, []);
 
-  const showLoading = () =>
-    loading && (
-      <div className="overlay-top">
-        <h1 className="txt-main">Please wait....</h1>
-        <img className="loadingImg" src={spinner} alt="inner" />
-      </div>
-    );
+
 
   return (
     <div className="background-st-ac p-3">
@@ -131,7 +125,7 @@ const TeacherTaskList = () => {
             </div>
           </div>
           <br />
-          {search(taskList).map((c, i) => (
+          {search().map((c, i) => (
             <div className="card text-center mt-5">
               <div className="card-header">{c.validtill}</div>
               <div className="card-body">

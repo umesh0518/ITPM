@@ -195,7 +195,7 @@ const PaymentReport = React.forwardRef((props, ref) => {
                 </tr>
               </thead>
               <tbody>
-                {search(payment).map((c, i) => (
+                {search().map((c, i) => (
                   <tr key={i} className="align-top">
                     <td>{c.name}</td>
                     <td>{c.contactNo}</td>

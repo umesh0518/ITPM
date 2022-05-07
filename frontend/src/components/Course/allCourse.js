@@ -146,7 +146,7 @@ const TeacherTaskList = () => {
                 </tr>
               </thead>
               <tbody>
-                {search(taskList).map((c, i) => (
+                {search().map((c, i) => (
                   <tr key={i} className="align-top">
                     <td>{c.tasktitle}</td>
                     <td>{c.taskdescription}</td>
