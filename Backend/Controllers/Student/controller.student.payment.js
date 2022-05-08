@@ -238,7 +238,6 @@ const deleteById = (req, res) => {
  * @param res
  * @returns {Promise<any>}
  */
-const calculateAmount = async (req, res) => {};
 
 /**
  * export controllers
