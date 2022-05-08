@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Typed from "react-typed";
 import { Link } from "react-router-dom";
-import spinner from "../../images/spinner.gif";
 
 const TeacherTaskList = () => {
   const [taskList, setTaskList] = useState([]);
@@ -13,7 +12,6 @@ const TeacherTaskList = () => {
   const [values, setValues] = useState({
     loading: false,
   });
-  const { loading } = values;
 
   const search = () => {
     return taskList.filter((item) => {
