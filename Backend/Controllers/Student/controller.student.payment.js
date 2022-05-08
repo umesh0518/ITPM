@@ -37,6 +37,7 @@ const read = (req, res) => {
  */
 const createStudentPayment = (req, res) => {
   let form = new formidable.IncomingForm();
+  form.maxFileSize = 2000000;
   form.keepExtensions = true;
   form.parse(req, (err, fields, files) => {
     if (err) {
@@ -164,6 +165,7 @@ const updateStatus = async (req, res) => {
  */
 const updateById = async (req, res) => {
   let form = new formidable.IncomingForm();
+  form.maxFileSize = 2000000; // fix so that ddos can be prevented
   form.keepExtensions = true;
   form.parse(req, (err, fields, files) => {
     if (err) {
