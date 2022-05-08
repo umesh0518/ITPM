@@ -11,7 +11,12 @@ const NoticeRoute = require("./Routes/Notice/route.notice.new");
 
 dotenv.config();
 const app = express();
-app.use(cors());
+// app.use(cors());
+
+let corsOptions = {
+  origin: "trustedwebsite.com", // Compliant
+};
+app.use(cors(corsOptions));
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
