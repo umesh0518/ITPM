@@ -109,7 +109,7 @@ const TeacherTaskList = () => {
                     <input
                       type="search"
                       className="form-control"
-                      placeholder="Search by teacher id"
+                      placeholder="Search by assignment name"
                       value={q}
                       onChange={(e) => setQ(e.target.value)}
                     />

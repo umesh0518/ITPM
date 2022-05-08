@@ -78,7 +78,7 @@ const TeacherTaskList = () => {
       <div className="card shadow p-3 mb-4 bg-body rounded">
         <div className="row g-2">
           <div className="col-md">
-            <h1>Assignment list</h1>
+            <h1>Notice list</h1>
             <br />
           </div>
           <div className="col-md">
@@ -111,7 +111,7 @@ const TeacherTaskList = () => {
                     <input
                       type="search"
                       className="form-control"
-                      placeholder="Search by teacher id"
+                      placeholder="Search by notice id"
                       value={q}
                       onChange={(e) => setQ(e.target.value)}
                     />

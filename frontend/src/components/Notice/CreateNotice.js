@@ -68,7 +68,7 @@ const TaskTeacher = () => {
     <div className="background">
       <div className="container mt-4 shadow p-3 mb-5 bg-body rounded">
         <div>
-          <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add Teacher Task</h1>
+          <h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Add Notice</h1>
           <div className="p-3">
             <form className="row g-3" onSubmit={clickSubmit}>
               <h5>Notice Detail</h5>
